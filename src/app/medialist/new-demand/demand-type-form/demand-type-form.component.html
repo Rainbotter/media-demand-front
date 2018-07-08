@@ -1,0 +1,11 @@
+<form [formGroup]="demandTypeFormGroup" novalidate>
+  <mat-form-field>
+    <mat-select placeholder="Type de média"
+                [formControl]="mediaType"
+                (selectionChange)="selectionChange($event)">
+      <mat-option *ngFor="let type of types" [value]="type.value">
+        {{ type.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

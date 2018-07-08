@@ -1,0 +1,15 @@
+<div class="header">
+  <mat-toolbar color="primary" role="header" class="responsive-header">
+    <button mat-button color="basic" class="responsive-btn" [routerLink]=" ['./'] "><mat-icon>home</mat-icon> Bober.ovh</button>
+    <span class="fill-remaining-space"></span>
+    <button mat-button color="basic" class="responsive-btn" [routerLink]=" ['./demands/list'] ">Demandes</button>
+    <span class="fill-remaining-space"></span>
+    <button mat-button color="basic" class="responsive-btn" [routerLink]=" ['./demands/new'] ">Créer une demande</button>
+  </mat-toolbar>
+</div>
+
+<router-outlet></router-outlet>
+
+<div class="footer">
+
+</div>

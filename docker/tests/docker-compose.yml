@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  platform-e2e:
+    image: antoine/e2e:latest
+    container_name: signature_platform_e2e
+    shm_size: 1gb
+    privileged: true
+    volumes:
+      - ./../../media-demands-front/:/app

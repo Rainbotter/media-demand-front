@@ -1,0 +1,19 @@
+.centered-buttons {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .responsive-btn {
+    padding: 0 5px;
+    margin: 5px;
+  }
+
+  .responsive-header {
+    padding: 0;
+    margin: 0;
+  }
+
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+}

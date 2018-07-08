@@ -1,0 +1,26 @@
+<form [formGroup]="demandFormGroup" novalidate>
+  <div class="form-group">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Artiste"
+             [formControl]="artiste">
+    </mat-form-field>
+    <mat-slide-toggle
+      (change)="fullDiscographyToggled()"
+      [formControl]="fullDiscography">
+      Discographie complète
+    </mat-slide-toggle>
+    <mat-form-field *ngIf="!fullDiscography.value" class="example-full-width">
+      <input matInput placeholder="Album"
+             [formControl]="album">
+    </mat-form-field>
+    <mat-form-field *ngIf="!fullDiscography.value" class="example-full-width">
+      <input matInput placeholder="Date de sortie approximative"
+             [formControl]="year"
+             [type]="yearInputType">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Genre"
+             [formControl]="genre">
+    </mat-form-field>
+  </div>
+</form>

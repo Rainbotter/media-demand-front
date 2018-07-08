@@ -1,0 +1,11 @@
+<mat-list>
+  <mat-list-item>{{demandFormGroup.get('artiste').value}}</mat-list-item>
+  <div *ngIf="demandFormGroup.get('fullDiscography').value;then fullDiscography;else album"></div>
+  <ng-template #fullDiscography>
+    <mat-list-item>Discographie complète</mat-list-item>
+  </ng-template>
+  <ng-template #album>
+    <mat-list-item>{{demandFormGroup.get('album').value}} ({{demandFormGroup.get('year').value}})</mat-list-item>
+  </ng-template>
+  <mat-list-item>{{demandFormGroup.get('genre').value}}</mat-list-item>
+</mat-list>

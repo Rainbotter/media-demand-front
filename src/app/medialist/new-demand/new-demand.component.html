@@ -1,0 +1,62 @@
+<mat-progress-bar *ngIf="postingNewDemand" mode="indeterminate" class="loading-bar"></mat-progress-bar>
+<mat-vertical-stepper linear>
+  <mat-step [stepControl]="demandTypeFormGroup">
+    <ng-template matStepLabel>Type de média</ng-template>
+    <app-demand-type-form (demandTypeFormGroupCreate)="demandTypeFormGroupCreate($event)"
+                          (mediaTypeChanged)="mediaTypeChanged($event)">
+    </app-demand-type-form>
+    <div class="button-row">
+      <button matStepperNext
+              mat-raised-button
+              color="primary"
+              type="button"
+              [disabled]="!firstStepOk">
+        Suivant
+      </button>
+    </div>
+  </mat-step>
+  <mat-step [stepControl]="demandFormGroup">
+    <form [formGroup]="demandFormGroup">
+      <ng-template matStepLabel>Informations sur le média</ng-template>
+      <app-music-demand-form *ngIf="this.selectedType == 'music'"
+                             (demandFormGroupCreate)="demandFormGroupCreate($event)"
+                             (status)="secondStepCompletionStatus($event)">
+      </app-music-demand-form>
+      <app-film-demand-form *ngIf="this.selectedType == 'film'"
+                            (demandFormGroupCreate)="demandFormGroupCreate($event)"
+                            (status)="secondStepCompletionStatus($event)">
+      </app-film-demand-form>
+      <app-serie-demand-form *ngIf="this.selectedType == 'serie'"
+                             (demandFormGroupCreate)="demandFormGroupCreate($event)"
+                             (status)="secondStepCompletionStatus($event)">
+      </app-serie-demand-form>
+      <div>
+        <button matStepperPrevious mat-raised-button type="button">Retour</button>
+        <button matStepperNext
+                mat-raised-button
+                color="primary"
+                type="button"
+                [disabled]="!demandFormGroup.valid">
+          Suivant
+        </button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Récapitulatif</ng-template>
+    <app-music-demand-summary *ngIf="this.selectedType == 'music'"
+                              [demandFormGroup]="demandFormGroup"
+    ></app-music-demand-summary>
+    <app-film-demand-summary *ngIf="this.selectedType == 'film'"></app-film-demand-summary>
+    <app-serie-demand-summary *ngIf="this.selectedType == 'serie'"></app-serie-demand-summary>
+    <div>
+      <button matStepperPrevious mat-raised-button type="button">Retour</button>
+      <button matStepperNext mat-raised-button
+              (click)="sendNewMusicDemand()"
+              color="accent"
+              type="button">Submit
+      </button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>
+

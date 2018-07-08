@@ -1,0 +1,8 @@
+before_script:
+  - npm install
+
+tests:
+  script:
+    - npm run e2e
+  tags:
+    - docker
