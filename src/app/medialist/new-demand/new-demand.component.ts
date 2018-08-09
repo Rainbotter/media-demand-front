@@ -1,8 +1,8 @@
 import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {NewDemandService} from "./new-demand.service";
-import {MatSnackBar} from "@angular/material";
-import {Router} from "@angular/router";
+import {NewDemandService} from './new-demand.service';
+import {MatSnackBar} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-demand',
@@ -58,12 +58,16 @@ export class NewDemandComponent implements OnInit, OnChanges {
     this.postingNewDemand = true;
     this.newDemandService.sendNewDemand(this.demandFormGroup).then(result => {
       this.postingNewDemand = false;
-      this.snackBar.open('Demande envoyée', '', {
-        duration: 2000
-      }).afterDismissed().toPromise().then(dismissed =>
-        this.router.navigate(['/'])
-      );
+      this.confirmDemandIsSended();
     });
+  }
+
+  private confirmDemandIsSended() {
+    this.snackBar.open('Demande envoyée', '', {
+      duration: 2000
+    }).afterDismissed().toPromise().then(dismissed =>
+      this.router.navigate(['/'])
+    );
   }
 
 }

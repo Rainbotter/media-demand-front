@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {FormGroup} from "@angular/forms";
-import {NewDemandService} from "../new-demand.service";
-import {MatSnackBar} from "@angular/material";
+import {FormGroup} from '@angular/forms';
+import {NewDemandService} from '../new-demand.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-music-demand-summary',
