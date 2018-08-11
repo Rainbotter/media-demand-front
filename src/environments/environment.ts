@@ -11,8 +11,9 @@ export const environment = {
   api: {
     music: {
       getMusicDemands: '',
-      getMusicDemandById: '',
+      getMusicDemandById: '/music/:id',
       postMusicDemand: '/music',
+      resolveMusicDemand: '/music/:id/resolve'
     },
     film: {},
     serie: {}
