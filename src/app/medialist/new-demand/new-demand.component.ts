@@ -56,15 +56,28 @@ export class NewDemandComponent implements OnInit, OnChanges {
 
   sendNewMusicDemand() {
     this.postingNewDemand = true;
-    this.newDemandService.sendNewDemand(this.demandFormGroup).then(result => {
-      this.postingNewDemand = false;
-      this.confirmDemandIsSended();
-    });
+    this.newDemandService.sendNewDemand(this.demandFormGroup).subscribe(
+      result => {
+        this.postingNewDemand = false;
+        this.confirmDemandIsSended();
+      },
+      err => {
+        this.postingNewDemand = false;
+        this.errorWhileProcessingRequest();
+      });
   }
 
   private confirmDemandIsSended() {
     this.snackBar.open('Demande envoyée', '', {
-      duration: 2000
+      duration: 5000
+    }).afterDismissed().toPromise().then(dismissed =>
+      this.router.navigate(['/'])
+    );
+  }
+
+  private errorWhileProcessingRequest() {
+    this.snackBar.open('Un problème est survenu', '', {
+      duration: 5000
     }).afterDismissed().toPromise().then(dismissed =>
       this.router.navigate(['/'])
     );

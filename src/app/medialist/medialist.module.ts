@@ -20,7 +20,8 @@ import {FilmDemandSummaryComponent} from './new-demand/film-demand-summary/film-
 import {MusicDemandSummaryComponent} from './new-demand/music-demand-summary/music-demand-summary.component';
 import {SerieDemandSummaryComponent} from './new-demand/serie-demand-summary/serie-demand-summary.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NewDemandService} from "./new-demand/new-demand.service";
+import {NewDemandService} from './new-demand/new-demand.service';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {NewDemandService} from "./new-demand/new-demand.service";
     MatSlideToggleModule,
     MatListModule,
     MatSnackBarModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    HttpClientModule
   ],
   declarations: [
     DemandsComponent,

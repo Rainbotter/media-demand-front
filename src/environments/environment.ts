@@ -3,6 +3,18 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+const HOST = 'http://localhost:8081';
+
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: HOST + '/api',
+  api: {
+    music: {
+      getMusicDemands: '',
+      getMusicDemandById: '',
+      postMusicDemand: '/music',
+    },
+    film: {},
+    serie: {}
+  }
 };
