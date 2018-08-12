@@ -16,6 +16,12 @@ node {
         sh "ng build --prod"
     }
 
+    stage('Deploy to production ?') {
+        timeout(time: 1, unit: 'HOURS') {
+            input 'Deploy to Production?'
+        }
+    }
+
     stage('deploy') {
         sh "cp -R dist/* /home/jenkins/prod/front"
     }
