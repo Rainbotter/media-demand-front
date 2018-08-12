@@ -17,6 +17,6 @@ node {
     }
 
     stage('deploy') {
-        sh "cp -R dist/ /home/jenkins/prod/front"
+        sh "cp -R dist/* /home/jenkins/prod/front"
     }
 }
