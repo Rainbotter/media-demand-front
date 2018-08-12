@@ -13,7 +13,7 @@ node {
     }
 
     stage('ng build') {
-        sh "ng build -prod"
+        sh "ng build --prod"
     }
 
     stage('deploy') {
