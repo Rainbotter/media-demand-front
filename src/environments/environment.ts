@@ -16,6 +16,7 @@ export const environment = {
       resolveMusicDemand: '/music/:id/resolve'
     },
     film: {},
-    serie: {}
+    serie: {},
+    statistics: '/stats'
   }
 };

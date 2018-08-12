@@ -1,8 +1,8 @@
-import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {NewDemandService} from './new-demand.service';
-import {MatSnackBar} from '@angular/material';
-import {Router} from '@angular/router';
+import {MatSnackBar, MatStepper} from '@angular/material';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-demand',
@@ -19,7 +19,12 @@ export class NewDemandComponent implements OnInit, OnChanges {
   secondStepOk = false;
   postingNewDemand = false;
 
-  constructor(private newDemandService: NewDemandService, private snackBar: MatSnackBar, private router: Router) {
+  @ViewChild('stepper') stepper: MatStepper;
+
+  constructor(private newDemandService: NewDemandService,
+              private snackBar: MatSnackBar,
+              private router: Router,
+              private route: ActivatedRoute) {
     this.firstStepOk = false;
   }
 
@@ -28,6 +33,12 @@ export class NewDemandComponent implements OnInit, OnChanges {
     this.demandFormGroup = new FormGroup({
       init: new FormControl('', [Validators.required])
     });
+
+    this.route.queryParams.subscribe(params => {
+      this.mediaTypeChanged(params['type']);
+      this.stepper.selectedIndex = 2;
+    });
+
   }
 
   ngOnChanges(changes: SimpleChanges) {

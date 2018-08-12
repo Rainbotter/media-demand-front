@@ -1,8 +1,8 @@
 <mat-progress-bar *ngIf="postingNewDemand" mode="indeterminate" class="loading-bar"></mat-progress-bar>
 <mat-vertical-stepper linear>
-  <mat-step [stepControl]="demandTypeFormGroup">
+  <mat-step #stepper [stepControl]="demandTypeFormGroup">
     <ng-template matStepLabel>Type de média</ng-template>
-    <app-demand-type-form (demandTypeFormGroupCreate)="demandTypeFormGroupCreate($event)"
+    <app-demand-type-form (demandTypeFormGroupCreate)=" demandTypeFormGroupCreate($event)"
                           (mediaTypeChanged)="mediaTypeChanged($event)">
     </app-demand-type-form>
     <div class="button-row">

@@ -1,3 +1,11 @@
-<p>
-  dashbaoard works!
-</p>
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="5">
+
+  <app-film-stats fxFlex></app-film-stats>
+  <app-serie-stats fxFlex></app-serie-stats>
+  <app-music-stats [musicStats]="musicStatistics" fxFlex></app-music-stats>
+</div>

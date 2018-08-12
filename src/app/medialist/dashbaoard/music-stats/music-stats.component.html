@@ -1,0 +1,99 @@
+<mat-card>
+  <mat-card-header fxLayout="row">
+    <mat-card-title>
+      <mat-icon mat-list-icon>music_note</mat-icon>
+      Musique
+    </mat-card-title>
+    <mat-card-subtitle>Statistiques</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon>remove</mat-icon>
+        <h4 mat-line>Nombre de demandes total
+          <span class="pull-right">
+            {{totalCreatedDemands}}
+          </span>
+        </h4>
+      </mat-list-item>
+      <mat-list-item>
+        <mat-icon mat-list-icon>done</mat-icon>
+        <h4 mat-line>Nombre de demandes résolues
+          <span class="pull-right">
+            {{totalResolvedDemands}}
+          </span>
+        </h4>
+      </mat-list-item>
+    </mat-list>
+    <div class="container"
+         fxLayout
+         fxLayoutAlign="center"
+         fxLayoutGap="90px"
+         fxLayoutGap.xs="15px">
+      <div>
+        <p>
+          <mat-progress-spinner
+            [color]="spinner_color"
+            [mode]="spinner_mode"
+            [value]="spinner_value">
+          </mat-progress-spinner>
+        </p>
+        <div style="position:relative; top: -71px; left: 11px;">
+          {{ spinner_text }}
+        </div>
+        <span>Toutes les demandes</span>
+      </div>
+      <div>
+        <p>
+          <mat-progress-spinner
+            [color]="spinner_color"
+            [mode]="spinner_mode"
+            [value]="spinner_value">
+          </mat-progress-spinner>
+        </p>
+        <div style="position:relative; top: -71px; left: 12px;">
+          {{ spinner_text }}
+        </div>
+        <span>Dernières demandes</span>
+      </div>
+    </div>
+    <mat-divider [inset]="true"></mat-divider>
+    <mat-list>
+      <h3 mat-subheader>Dernières demandes ({{lastCreatedDemands.length}})</h3>
+      <mat-list-item *ngFor="let demand of lastCreatedDemands">
+        <mat-icon *ngIf="demand.resolveDate" mat-list-icon>done</mat-icon>
+        <mat-icon *ngIf="!demand.resolveDate" mat-list-icon>remove</mat-icon>
+        <h4 mat-line>{{demand.artiste}} ({{demand.genre}})
+          <span class="pull-right">
+            {{demand.creation_date | date}}
+          </span>
+        </h4>
+        <p mat-line>
+          <span *ngIf="demand.fullDiscography">Discographie complète</span>
+          <span *ngIf="!demand.fullDiscography">{{demand.album}} ({{demand.year}})</span>
+        </p>
+      </mat-list-item>
+      <mat-divider [inset]="true"></mat-divider>
+      <h3 mat-subheader>Dernières demandes resolues ({{lastResolvedDemands.length}})</h3>
+      <mat-list-item *ngFor="let demand of lastResolvedDemands">
+        <mat-icon *ngIf="demand.resolveDate" mat-list-icon>done</mat-icon>
+        <mat-icon *ngIf="!demand.resolveDate" mat-list-icon>remove</mat-icon>
+        <h4 mat-line>{{demand.artiste}} ({{demand.genre}})
+          <span class="pull-right">
+            {{demand.creation_date | date}}
+          </span>
+        </h4>
+        <p mat-line>
+          <span *ngIf="demand.fullDiscography">Discographie complète</span>
+          <span *ngIf="!demand.fullDiscography">{{demand.album}} ({{demand.year}})</span>
+        </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>Voir toutes les demandes</button>
+    <button mat-button (click)="goToNewMusicDemand()">Faire une demande</button>
+  </mat-card-actions>
+</mat-card>

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-import {Observable} from '../../../../node_modules/rxjs';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class NewDemandService {

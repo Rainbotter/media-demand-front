@@ -9,6 +9,12 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatListModule} from '@angular/material/list';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDividerModule} from '@angular/material/divider';
 import {DashbaoardComponent} from './dashbaoard/dashbaoard.component';
 import {NewDemandComponent} from './new-demand/new-demand.component';
 import {DemandsComponent} from './demands/demands.component';
@@ -22,6 +28,11 @@ import {SerieDemandSummaryComponent} from './new-demand/serie-demand-summary/ser
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NewDemandService} from './new-demand/new-demand.service';
 import {HttpClientModule} from '@angular/common/http';
+import {MusicStatsComponent} from './dashbaoard/music-stats/music-stats.component';
+import {SerieStatsComponent} from './dashbaoard/serie-stats/serie-stats.component';
+import {FilmStatsComponent} from './dashbaoard/film-stats/film-stats.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {DashboardService} from './dashbaoard/dashboard.service';
 
 
 @NgModule({
@@ -34,12 +45,19 @@ import {HttpClientModule} from '@angular/common/http';
     MatButtonModule,
     MatCheckboxModule,
     ReactiveFormsModule,
+    MatToolbarModule,
+    MatDividerModule,
     MatInputModule,
     MatSlideToggleModule,
     MatListModule,
     MatSnackBarModule,
     MatProgressBarModule,
-    HttpClientModule
+    MatCardModule,
+    MatIconModule,
+    MatGridListModule,
+    HttpClientModule,
+    FlexLayoutModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     DemandsComponent,
@@ -51,9 +69,15 @@ import {HttpClientModule} from '@angular/common/http';
     SerieDemandFormComponent,
     FilmDemandSummaryComponent,
     MusicDemandSummaryComponent,
-    SerieDemandSummaryComponent
+    SerieDemandSummaryComponent,
+    MusicStatsComponent,
+    SerieStatsComponent,
+    FilmStatsComponent
   ],
-  providers: [NewDemandService]
+  providers: [
+    NewDemandService,
+    DashboardService
+  ]
 })
 
 export class MedialistModule {
