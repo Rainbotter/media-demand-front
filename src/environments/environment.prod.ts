@@ -1,4 +1,4 @@
-const HOST = 'https://tracker.bober.ovh';
+const HOST = 'https://demands.bober.ovh';
 
 export const environment = {
   production: true,
