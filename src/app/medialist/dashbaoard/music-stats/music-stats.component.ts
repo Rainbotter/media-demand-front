@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {MusicStatistics} from '../../model/statistics/MusicStatistics';
 import {MusicDemand} from '../../model/demands/MusicDemand';
 import {Router} from '@angular/router';
@@ -41,7 +41,7 @@ export class MusicStatsComponent implements OnChanges {
       this._spinner_color = 'accent';
     }
 
-    this._spinner_text = this._spinner_value + '% résolu';
+    this._spinner_text = this._resolvedDemandsPercentage + '% résolu';
   }
 
   public goToNewMusicDemand() {
@@ -94,4 +94,5 @@ export class MusicStatsComponent implements OnChanges {
       this._musicStats = value;
     }
   }
+
 }
