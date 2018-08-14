@@ -23,6 +23,12 @@ node {
     }
 
     stage('deploy') {
+      emailext (
+          subject: "Deployment in production: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+          body: """<p>Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' will be deployed</p>
+            <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+          recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+        )
         sh "cp -R dist/* /home/jenkins/prod/front"
     }
 }
