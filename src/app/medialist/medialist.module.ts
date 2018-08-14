@@ -15,7 +15,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
-import {DashbaoardComponent} from './dashbaoard/dashbaoard.component';
+import {DashbaoardComponent} from './dashboard/dashbaoard.component';
 import {NewDemandComponent} from './new-demand/new-demand.component';
 import {DemandsComponent} from './demands/demands.component';
 import {DemandTypeFormComponent} from './new-demand/demand-type-form/demand-type-form.component';
@@ -28,11 +28,11 @@ import {SerieDemandSummaryComponent} from './new-demand/serie-demand-summary/ser
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NewDemandService} from './new-demand/new-demand.service';
 import {HttpClientModule} from '@angular/common/http';
-import {MusicStatsComponent} from './dashbaoard/music-stats/music-stats.component';
-import {SerieStatsComponent} from './dashbaoard/serie-stats/serie-stats.component';
-import {FilmStatsComponent} from './dashbaoard/film-stats/film-stats.component';
+import {MusicStatsComponent} from './dashboard/music-stats/music-stats.component';
+import {SerieStatsComponent} from './dashboard/serie-stats/serie-stats.component';
+import {FilmStatsComponent} from './dashboard/film-stats/film-stats.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {DashboardService} from './dashbaoard/dashboard.service';
+import {DashboardService} from './dashboard/dashboard.service';
 
 
 @NgModule({
