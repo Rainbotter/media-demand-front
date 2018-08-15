@@ -19,5 +19,5 @@ export const environment = {
     serie: {},
     statistics: '/stats'
   },
-  recaptchaKey: '6LdMAmoUAAAAAIILNttmTzzk5AqDc8ZuKdfH6253'
+  recaptchaKey: '6LcRB2oUAAAAAIAqSEEO1Ebyyoqvt5KGa4zTJ--g'
 };
