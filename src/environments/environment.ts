@@ -18,5 +18,6 @@ export const environment = {
     film: {},
     serie: {},
     statistics: '/stats'
-  }
+  },
+  recaptchaKey: '6LdMAmoUAAAAAIILNttmTzzk5AqDc8ZuKdfH6253'
 };

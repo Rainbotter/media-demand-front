@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {NewDemandService} from './new-demand.service';
 import {MatSnackBar, MatStepper} from '@angular/material';
 import {ActivatedRoute, Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-new-demand',
@@ -19,6 +20,8 @@ export class NewDemandComponent implements OnInit, OnChanges {
   secondStepOk = false;
   postingNewDemand = false;
 
+  private _recaptchaSiteKey: string;
+
   @ViewChild('stepper') stepper: MatStepper;
 
   constructor(private newDemandService: NewDemandService,
@@ -26,6 +29,7 @@ export class NewDemandComponent implements OnInit, OnChanges {
               private router: Router,
               private route: ActivatedRoute) {
     this.firstStepOk = false;
+    this._recaptchaSiteKey = environment.recaptchaKey;
   }
 
   ngOnInit() {
@@ -94,4 +98,11 @@ export class NewDemandComponent implements OnInit, OnChanges {
     );
   }
 
+  get recaptchaSiteKey(): string {
+    return '"' + this._recaptchaSiteKey + '"';
+  }
+
+  set recaptchaSiteKey(value: string) {
+    this._recaptchaSiteKey = value;
+  }
 }

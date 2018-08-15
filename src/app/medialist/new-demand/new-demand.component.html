@@ -1,3 +1,12 @@
+<script>
+  grecaptcha.ready(function() {
+    grecaptcha.execute("{{recaptchaSiteKey}}", {action: 'action_name'})
+      .then(function(token) {
+        console.log("ok");
+      });
+  });
+</script>
+
 <mat-progress-bar *ngIf="postingNewDemand" mode="indeterminate" class="loading-bar"></mat-progress-bar>
 <mat-vertical-stepper linear>
   <mat-step #stepper [stepControl]="demandTypeFormGroup">
@@ -51,6 +60,9 @@
     <app-serie-demand-summary *ngIf="this.selectedType == 'serie'"></app-serie-demand-summary>
     <div>
       <button matStepperPrevious mat-raised-button type="button">Retour</button>
+
+      <script src='https://www.google.com/recaptcha/api.js?render=6LdMAmoUAAAAAIILNttmTzzk5AqDc8ZuKdfH6253'></script>
+
       <button matStepperNext mat-raised-button
               (click)="sendNewMusicDemand()"
               color="accent"
