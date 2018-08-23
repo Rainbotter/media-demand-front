@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class NewDemandService {
@@ -12,7 +13,7 @@ export class NewDemandService {
     this._recaptchaSiteKey = environment.recaptchaKey;
   }
 
-  sendNewDemand(demandFormGroup: FormGroup): Promise<Boolean> {
+  sendNewDemand(demandFormGroup: FormGroup): Promise<Observable<Object>> {
     const url = environment.baseUrl + environment.api.music.postMusicDemand;
 
     return this.sendRecaptchaRequest().then(token => {
