@@ -72,7 +72,7 @@ import {DashboardService} from './dashboard/dashboard.service';
     SerieDemandSummaryComponent,
     MusicStatsComponent,
     SerieStatsComponent,
-    FilmStatsComponent
+    FilmStatsComponent,
   ],
   providers: [
     NewDemandService,
