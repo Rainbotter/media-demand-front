@@ -19,5 +19,8 @@ export const environment = {
     serie: {},
     statistics: '/stats'
   },
-  recaptchaKey: '6LcRB2oUAAAAAIAqSEEO1Ebyyoqvt5KGa4zTJ--g'
+  recaptcha: {
+    key: '6LcRB2oUAAAAAIAqSEEO1Ebyyoqvt5KGa4zTJ--g',
+    scriptUrl: 'https://www.google.com/recaptcha/api.js?render=6LcRB2oUAAAAAIAqSEEO1Ebyyoqvt5KGa4zTJ--g'
+  }
 };

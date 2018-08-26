@@ -10,7 +10,7 @@ export class NewDemandService {
   private _recaptchaSiteKey: string;
 
   constructor(private http: HttpClient) {
-    this._recaptchaSiteKey = environment.recaptchaKey;
+    this._recaptchaSiteKey = environment.recaptcha.key;
   }
 
   sendNewDemand(demandFormGroup: FormGroup): Promise<Observable<Object>> {
