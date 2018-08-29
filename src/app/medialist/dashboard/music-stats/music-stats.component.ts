@@ -28,7 +28,8 @@ export class MusicStatsComponent implements OnChanges {
   }
 
   private calculateResolvedDemandsPercentage(): void {
-    this._resolvedDemandsPercentage = (this._musicStats.numberOfResolvedDemands / this._musicStats.numberOfCreatedDemands) * 100;
+    this._resolvedDemandsPercentage = Math.round(
+      (this._musicStats.numberOfResolvedDemands / this._musicStats.numberOfCreatedDemands) * 100);
     this._spinner_value = this._resolvedDemandsPercentage;
     if (this._spinner_value < 10) {
       this._spinner_value = 10;
